@@ -1,0 +1,52 @@
+name: Build DOCX
+on:
+  workflow_dispatch:
+    inputs:
+      term:
+        description: 学年学期
+        required: false
+        default: "2025 - 2026学年第1学期"
+      klass:
+        description: 班级
+        required: false
+        default: "2023级物联网工程1班"
+      sid:
+        description: 学号
+        required: false
+        default: "230911005"
+      name:
+        description: 姓名
+        required: false
+        default: "张三"
+      teacher:
+        description: 任课教师
+        required: false
+        default: "李晓"
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Generate DOCX
+        run: |
+          mkdir -p docs
+          python report_generator.py \
+            --out "docs/《Python程序设计》课程实践作业.docx" \
+            --term "${{ inputs.term }}" \
+            --klass "${{ inputs.klass }}" \
+            --sid "${{ inputs.sid }}" \
+            --name "${{ inputs.name }}" \
+            --teacher "${{ inputs.teacher }}"
+      - name: Commit DOCX
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "docs/《Python程序设计》课程实践作业.docx"
+          git commit -m "build: generate docx" || echo "No changes to commit"
+          git push
