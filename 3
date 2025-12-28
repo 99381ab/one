@@ -160,7 +160,7 @@ if __name__ == '__main__':
     print(pretty_print_summary(s))
 '''
 
-def build(out_path: str, term: str, klass: str, sid: str, name: str, teacher: str):
+def build(out_path: str, term: str, klass: str, sid: str, name: str, teacher: str, image: Optional[str] = None):
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
     doc = Document()
@@ -218,7 +218,14 @@ def build(out_path: str, term: str, klass: str, sid: str, name: str, teacher: st
     add_heading(doc, "3.1 运行界面（二维标题）", 14, True)
     add_body(doc, "运行程序后，输入 A 的回合胜率，程序自动输出逐局比分与总结。")
     add_heading(doc, "3.2 结果截图（二维标题）", 14, True)
-    add_body(doc, "此处可插入本机运行截图；如需插图，后续可在文档中粘贴。")
+    image = (image or "").strip()
+    if image:
+        if os.path.exists(image):
+            doc.add_picture(image, width=Cm(14))
+        else:
+            add_body(doc, f"未找到截图：{image}")
+    else:
+        add_body(doc, "此处可插入本机运行截图；如需插图，后续可在文档中粘贴。")
 
     # 4、结果分析与问题总结
     add_heading(doc, "4、结果分析与问题总结", 16, True)
@@ -240,9 +247,10 @@ def parse_args():
     p.add_argument("--sid", default="230911005")
     p.add_argument("--name", default="张三")
     p.add_argument("--teacher", default="李晓")
+    p.add_argument("--image", default=None, help="运行截图图片路径，可选")
     return p.parse_args()
 
 if __name__ == "__main__":
     a = parse_args()
-    build(a.out, a.term, a.klass, a.sid, a.name, a.teacher)
+    build(a.out, a.term, a.klass, a.sid, a.name, a.teacher, a.image)
     print(f"已生成：{a.out}")
