@@ -146,12 +146,14 @@ def sjf(queue: List[PCB]):
     return gantt
 
 def rr(queue: List[PCB], q: int = 2):
+    \"\"\"Round-robin scheduling；q 为时间片大小。\"\"\"
     time = 0
     gantt = []
     ready: Deque[PCB] = deque(sorted(queue, key=lambda x: x.arrival))
     while ready:
         p = ready.popleft()
         time = max(time, p.arrival)
+        start_time = time
         slice_used = min(q, p.remaining)
         if p.start is None:
             p.start = time
@@ -162,7 +164,7 @@ def rr(queue: List[PCB], q: int = 2):
         else:
             p.arrival = time
             ready.append(p)
-        gantt.append((p.pid, time))
+        gantt.append((p.pid, start_time, time))
     return gantt
 '''
 
