@@ -37,7 +37,7 @@ jobs:
         run: |
           mkdir -p docs
           python report_generator.py \
-            --out "docs/《Python程序设计》课程实践作业.docx" \
+            --out "docs/《操作系统课外实践报告-进程调度模拟系统》.docx" \
             --term "${{ inputs.term }}" \
             --klass "${{ inputs.klass }}" \
             --sid "${{ inputs.sid }}" \
@@ -47,6 +47,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "docs/《Python程序设计》课程实践作业.docx"
+          git add "docs/《操作系统课外实践报告-进程调度模拟系统》.docx"
           git commit -m "build: generate docx" || echo "No changes to commit"
           git push
