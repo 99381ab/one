@@ -8,11 +8,14 @@ import os
 from typing import Optional
 
 from docx import Document
+from docx.image.exceptions import UnrecognizedImageError
 from docx.shared import Pt, Cm
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+
+SCREENSHOT_WIDTH_CM = 14  # Keep screenshots within the page width on A4
 
 def set_run_cn_font(run, name="宋体", size_pt: Optional[int] = None, bold=False):
     run.font.name = name
@@ -218,12 +221,18 @@ def build(out_path: str, term: str, klass: str, sid: str, name: str, teacher: st
     add_heading(doc, "3.1 运行界面（二维标题）", 14, True)
     add_body(doc, "运行程序后，输入 A 的回合胜率，程序自动输出逐局比分与总结。")
     add_heading(doc, "3.2 结果截图（二维标题）", 14, True)
-    image = (image or "").strip()
-    if image:
-        if os.path.exists(image):
-            doc.add_picture(image, width=Cm(14))
+    if image is None:
+        image_path = ""
+    else:
+        image_path = image.strip()
+    if image_path:
+        if os.path.exists(image_path):
+            try:
+                doc.add_picture(image_path, width=Cm(SCREENSHOT_WIDTH_CM))
+            except (UnrecognizedImageError, OSError, ValueError) as exc:
+                add_body(doc, f"插入截图失败：{exc}")
         else:
-            add_body(doc, f"未找到截图：{image}")
+            add_body(doc, f"未找到截图：{image_path}")
     else:
         add_body(doc, "此处可插入本机运行截图；如需插图，后续可在文档中粘贴。")
 

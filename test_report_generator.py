@@ -5,6 +5,7 @@ from docx import Document
 from report_generator import build
 
 
+# 1x1 transparent PNG for screenshot insertion test
 _PNG_BYTES = base64.b64decode(
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO8y+GkAAAAASUVORK5CYII="
 )
