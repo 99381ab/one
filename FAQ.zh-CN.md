@@ -79,7 +79,7 @@ python report_generator.py --out "docs/《Python程序设计》课程实践作�
 可以！有两种方式：
 
 1. **修改脚本参数** - 通过命令行参数自定义个人信息
-2. **修改源代码** - 编辑 `report_generator.py` 或文件 `3` 来自定义报告内容、格式和代码示例
+2. **修改源代码** - 编辑 `report_generator.py` 来自定义报告内容、格式和代码示例（注：仓库中的文件 `3` 是 `report_generator.py` 的备份副本）
 
 ### 生成的文档在哪里？
 
@@ -205,9 +205,11 @@ cd one
 ### 文件 1、2、3 是什么？
 
 这些是仓库中的辅助文件：
-- **文件 1**: 报告生成器使用说明
-- **文件 2**: GitHub Actions 工作流配置
-- **文件 3**: Python 报告生成器源代码（与 `report_generator.py` 相同）
+- **文件 1**: 报告生成器使用说明文档
+- **文件 2**: GitHub Actions 工作流 YAML 配置
+- **文件 3**: Python 报告生成器源代码（`report_generator.py` 的备份副本）
+
+注：主要使用 `report_generator.py`，文件 1-3 是为了便于查看而保留的独立文档副本。
 
 ### 需要什么软件？
 

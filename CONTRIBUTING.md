@@ -46,7 +46,7 @@
 1. **Fork 仓库**
    ```bash
    # 在 GitHub 上点击 Fork 按钮
-   git clone https://github.com/你的用户名/one.git
+   git clone https://github.com/<your-username>/one.git
    cd one
    ```
 

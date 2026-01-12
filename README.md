@@ -10,10 +10,10 @@
 
 自动生成符合格式要求的《Python 程序设计》课程实践作业 Word 文档。
 
-**快速开始：**
-- 📖 查看 [使用说明](1)
-- ⚙️ 查看 [GitHub Actions 配置](2)
-- 💻 查看 [源代码](3) 或 [report_generator.py](report_generator.py)
+**相关文件：**
+- 💻 [report_generator.py](report_generator.py) - 主程序源代码
+- 📖 [使用说明](1) - 报告生成器文档
+- ⚙️ [工作流配置](2) - GitHub Actions 自动化配置
 
 **使用方法：**
 ```bash
@@ -72,11 +72,11 @@ python report_generator.py --out "docs/《Python程序设计》课程实践作�
 ├── FAQ.zh-CN.md                 # 常见问题解答（中文）
 ├── FAQ.md                       # 常见问题解答（英文）
 ├── CONTRIBUTING.md              # 贡献指南
-├── 1                            # 报告生成器说明
-├── 2                            # GitHub Actions 配置
-├── 3                            # 报告生成器源代码
 ├── report_generator.py          # 报告生成器主程序
 ├── requirements.txt             # Python 依赖
+├── 1                            # 文档：报告生成器说明
+├── 2                            # 文档：GitHub Actions 配置
+├── 3                            # 文档：报告生成器源代码备份
 └── pt-vlan-assignment/          # VLAN 实验配置
     ├── README.zh-CN.md          # VLAN 实验说明
     ├── switch_D_3560.cfg        # 三层交换机配置
@@ -85,7 +85,9 @@ python report_generator.py --out "docs/《Python程序设计》课程实践作�
     └── switch_c_2960.cfg        # 二层交换机 C 配置
 ```
 
-## 🚀 快速开始
+**注：** 文件 1、2、3 是历史遗留的文档副本，主要使用带描述性名称的文件（如 `report_generator.py`）。
+
+## 🚀 使用指南
 
 1. **克隆仓库**
    ```bash

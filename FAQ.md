@@ -79,7 +79,7 @@ The generated report is a complete course practice assignment document, includin
 Yes! There are two ways:
 
 1. **Modify script parameters** - Customize personal information through command-line parameters
-2. **Modify source code** - Edit `report_generator.py` or file `3` to customize report content, format, and code examples
+2. **Modify source code** - Edit `report_generator.py` to customize report content, format, and code examples (Note: file `3` in the repository is a backup copy of `report_generator.py`)
 
 ### Where is the generated document?
 
@@ -205,9 +205,11 @@ Of course! This repository is open source, welcome to:
 ### What are files 1, 2, 3?
 
 These are auxiliary files in the repository:
-- **File 1**: Report generator usage instructions
-- **File 2**: GitHub Actions workflow configuration
-- **File 3**: Python report generator source code (same as `report_generator.py`)
+- **File 1**: Report generator usage documentation
+- **File 2**: GitHub Actions workflow YAML configuration
+- **File 3**: Python report generator source code (backup copy of `report_generator.py`)
+
+Note: Primarily use `report_generator.py`. Files 1-3 are separate document copies retained for easy viewing.
 
 ### What software is needed?
 
