@@ -44,6 +44,10 @@ python report_generator.py --out "docs/《Python程序设计》课程实践作�
 - 实现 VLAN 10、20、30 之间的互通
 - 使用 Trunk 端口和 SVI 进行路由
 
+## 🚀 快速开始
+
+**第一次使用？** 查看 **[快速入门指南](QUICKSTART.zh-CN.md)** 在 5 分钟内上手！
+
 ## 🤔 常见问题
 
 有问题？查看我们的 **[常见问题解答 (FAQ)](FAQ.zh-CN.md)**，里面包含：
@@ -64,7 +68,10 @@ python report_generator.py --out "docs/《Python程序设计》课程实践作�
 ```
 .
 ├── README.md                    # 本文件
-├── FAQ.zh-CN.md                 # 常见问题解答
+├── QUICKSTART.zh-CN.md          # 快速入门指南
+├── FAQ.zh-CN.md                 # 常见问题解答（中文）
+├── FAQ.md                       # 常见问题解答（英文）
+├── CONTRIBUTING.md              # 贡献指南
 ├── 1                            # 报告生成器说明
 ├── 2                            # GitHub Actions 配置
 ├── 3                            # 报告生成器源代码
@@ -87,8 +94,12 @@ python report_generator.py --out "docs/《Python程序设计》课程实践作�
    ```
 
 2. **选择您需要的功能**
-   - 生成 Python 作业报告 → 参考上方"Python 课程实践作业报告生成器"部分
-   - 进行 VLAN 实验 → 查看 [pt-vlan-assignment/README.zh-CN.md](pt-vlan-assignment/README.zh-CN.md)
+   - 生成 Python 作业报告 → 参考 [快速入门指南](QUICKSTART.zh-CN.md#选项-a生成-python-作业报告最简单)
+   - 进行 VLAN 实验 → 参考 [快速入门指南](QUICKSTART.zh-CN.md#选项-c进行-vlan-网络实验)
+
+3. **需要帮助？**
+   - 查看 [常见问题解答](FAQ.zh-CN.md)
+   - 查看 [快速入门指南](QUICKSTART.zh-CN.md)
 
 ## 💡 贡献
 
